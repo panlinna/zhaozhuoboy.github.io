@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>个人简历</title>
+	<style type="text/css">
+		/*音乐按钮动画*/
+		@keyframes musicAnimate{
+			0%{transform: rotate(0deg);}
+			100%{transform: rotate(360deg);}
+		}
+		@-webkit-keyframes musicAnimate{
+			0%{transform: rotate(0deg);}
+			100%{transform: rotate(360deg);}
+		}
+		/*向上箭头动画*/
+		@keyframes animate{
+			0%{opacity:1;bottom:15px;}
+			25%{opacity:0.3;bottom:18px;}
+			50%{opacity:0;bottom:20px;}
+			75%{opacity:0.8;bottom:12px;}
+			100%{opacity:1;bottom:15px;}
+		}
+		@-webkit-keyframes animate{
+			0%{opacity:1;bottom:15px;}
+			25%{opacity:0.3;bottom:18px;}
+			50%{opacity:0;bottom:20px;}
+			75%{opacity:0.8;bottom:12px;}
+			100%{opacity:1;bottom:15px;}
+		}
+		html,body{
+			margin:0;
+			padding:0;
+			position:relative;
+			width:100%;height:100%;
+			background: #ccc;
+			font-family: "微软雅黑";
+		}
+		h1,h2,h3,h4,h5,p,ul,li{margin:0;padding:0;}
+		img{width:100%;}
+		.main{width:100%;height:100%;overflow:hidden;position:relative;}
+		.page{position:absolute;
+			width: 100%;
+			height:100%;
+			transition:all 0.3s linear;
+			-webkit-transition:all 0.3s linear;
+			transform:translateY(0);font-size: 40px;
+			-webkit-transform:translateY(0);font-size: 40px;
+			text-align: center;
+			/*z-index: 1;*/
+		}
+		.page1{background: #58e9cc;}
+		.page2{background: #92e958;}
+		.page3{background: #d75cfa;}
+		.page4{background: #eee559;}
+		.pageUp{
+			transform:translateY(-100%);
+			-webkit-transform:translateY(-100%);
+		}
+		.pageDown{
+			transform:translateY(100%);
+			-webkit-transform:translateY(100%);
+		}
+
+		.gotop{
+			position: fixed;
+			width:16%;
+			left:42%;
+			height:30px;
+			bottom:15px;
+			background: url(images/arrow.png) no-repeat;
+			background-size: 100%;
+			animation:animate 1s linear infinite;
+			z-index: 3;
+		}
+		.music{
+			position:fixed;
+			top:20px;
+			right:20px;
+			width: 40px;
+			height: 40px;
+			background: url(images/normalmusic.svg);
+			background-size: 100%;
+			animation:musicAnimate 2s linear infinite;
+			z-index: 3;
+		}
+		.page1 .head-img{
+			position:absolute;
+			width:140px;
+			height:140px;
+			border:8px solid #fff;
+			border-radius:50%;
+			overflow:hidden;
+			left:50%;
+			margin-left:-70px;
+			top:7rem;
+		}
+		.page1 h2{margin:18rem 0 14px 0;font-size: 36px;color:#fff;transform:translateX(100px);}
+		.page1 h3{font-size: 28px;color:#fff;margin-bottom:10px;transform:translateX(-100px);}
+		.page1 .shizi{width: 100px;height: 100px;}
+		.line{width: 70%;border-top: 2px solid rgba(255,255,255,0.6);margin:0 auto;}
+		.page1 p{font-size:26px;color:#fff;margin-top: 10px;}
+		
+		.page2{color:#fff;}
+		.page2 h2{margin:8rem auto 10px auto;font-size: 35px;padding:10px;width:50%;background:rgba(247,255,42,0.6);}
+		.page2 p{font-size: 30px;color:#000;}
+		.page2 p.info{padding:14px;width:80%;margin:10px auto;font-size: 22px;border-radius: 30px;background: rgba(255,255,255,0.6);}
+		.page3 h2{margin:6rem auto 10px auto;font-size: 30px;padding:10px;width:50%;border:4px solid yellow;color:#fff;/*background:rgba(255,0,162,0.8);*/}
+		.page3 .skill{height: 70px;border:1px solid red;margin:2rem auto;overflow: hidden;}
+		.page3 .skill .img{position:absolute;width: 60px;height: 60px;border-radius:50%;background-size: 100%;border:5px solid #fff;overflow: hidden;float: left;z-index: 3;}
+		.page3 .skill .h5{background:#e44d26;left:8%;}
+		.page3 .skill .css3{background:#3b9adb;right:8%;}
+		.page3 .skill .js{background:#d6ba32;left:8%;}
+		.page3 .skill .level{position:absolute;left:8%;float: left;width:82%;height:70px;background: rgba(255,255,255,0.4);border-radius:35px;font-size: 24px;line-height:70px;}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="page page1">
+			<div class="head-img">
+				<img src="images/psb.jpg" alt="头像">
+			</div>
+			<h2>hi 我叫赵卓</h2>
+			<h3>我是一名</h3>
+			<img src="images/74.gif" class="shizi">
+			<div class="line"></div>
+			<p>前端攻城狮</p>
+		</div>
+		<div class="page page2 pageDown">
+			<h2>个人信息</h2>
+			<div class="line"></div>
+			<p>About Me</p>
+			<p class="info">姓名:赵卓</p>
+			<p class="info">专业:计算机科学与技术</p>
+			<p class="info">学校:河北科技师范学院</p>
+			<p class="info">学历:本科</p>
+			
+		</div>
+		<div class="page page3 pageDown">
+			<h2>技能掌握</h2>
+			<div class="skill">
+				<div class="img h5">
+					<img src="images/h5.png">
+				</div>
+				<div class="level">掌握程度:85%</div>
+			</div>
+			<div class="skill">
+				<div class="img css3">
+					<img src="images/css3.png">
+				</div>
+				<div class="level">掌握程度:85%</div>
+			</div>
+			<div class="skill">
+				<div class="img js">
+					<img src="images/js.png">
+				</div>
+				<div class="level">掌握程度:80%</div>
+			</div>
+		</div>
+		<div class="page page4 pageDown">4</div>
+		<div class="gotop"></div>
+		<div class="music"></div>
+		<!-- <audio src="source/music.mp3" autoplay="true"></audio> -->
+	</div>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/touch-0.2.14.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var index = 0;
+			var pageNum = $(".page").length;
+			console.log(pageNum)
+			touch.on('.main','swipeup',function(){
+				if(index >= pageNum-1){
+					return;
+				}
+				$(".page").eq(index).addClass("pageUp").next().removeClass('pageDown');
+				index++;
+				console.log(index);
+				//$(".page").eq(index).removeClass('pageDown');
+			});
+			touch.on(".main","swipedown",function(){
+				if(index<=0){
+					return;
+				}
+				$(".page").eq(index).addClass('pageDown');
+				index--;
+				$(".page").eq(index).removeClass('pageUp');
+			})
+
+
+		})
+	</script>
+</body>
+</html>
