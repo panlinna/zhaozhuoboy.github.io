@@ -44,9 +44,13 @@
 			width: 100%;
 			height:100%;
 			transition:all 0.3s linear;
+			-moz-transition:all 0.3s linear;
+			-o-transition:all 0.3s linear;
 			-webkit-transition:all 0.3s linear;
 			transform:translateY(0);font-size: 40px;
 			-webkit-transform:translateY(0);font-size: 40px;
+			-moz-transform:translateY(0);font-size: 40px;
+			-o-transform:translateY(0);font-size: 40px;
 			text-align: center;
 			/*z-index: 1;*/
 		}
@@ -67,11 +71,14 @@
 			position: fixed;
 			width:16%;
 			left:42%;
-			height:30px;
+			height:3rem;
 			bottom:15px;
 			background: url(images/arrow.png) no-repeat;
 			background-size: 100%;
 			animation:animate 1s linear infinite;
+			-webkit-animation:animate 1s linear infinite;
+			-moz-animation:animate 1s linear infinite;
+			-o-animation:animate 1s linear infinite;
 			z-index: 3;
 		}
 		.music{
@@ -83,36 +90,46 @@
 			background: url(images/normalmusic.svg);
 			background-size: 100%;
 			animation:musicAnimate 2s linear infinite;
+			-webkit-animation:musicAnimate 2s linear infinite;
+			-moz-animation:musicAnimate 2s linear infinite;
 			z-index: 3;
 		}
 		.page1 .head-img{
 			position:absolute;
-			width:140px;
-			height:140px;
+			width:120px;
+			height:120px;
 			border:8px solid #fff;
 			border-radius:50%;
 			overflow:hidden;
 			left:50%;
-			margin-left:-70px;
-			top:7rem;
+			margin-left:-60px;
+			top:5rem;
 		}
-		.page1 h2{margin:18rem 0 14px 0;font-size: 36px;color:#fff;transform:translateX(100px);}
+		.page1 h2{margin:15rem 0 14px 0;font-size: 2.2rem;color:#fff;transform:translateX(100px);}
 		.page1 h3{font-size: 28px;color:#fff;margin-bottom:10px;transform:translateX(-100px);}
 		.page1 .shizi{width: 100px;height: 100px;}
 		.line{width: 70%;border-top: 2px solid rgba(255,255,255,0.6);margin:0 auto;}
-		.page1 p{font-size:26px;color:#fff;margin-top: 10px;}
+		.page1 p{font-size:1.5rem;color:#fff;margin-top: 1rem;}
 		
 		.page2{color:#fff;}
-		.page2 h2{margin:8rem auto 10px auto;font-size: 35px;padding:10px;width:50%;background:rgba(247,255,42,0.6);}
+		.page2 h2{margin:5rem auto 10px auto;font-size: 35px;padding:10px;width:50%;background:rgba(247,255,42,0.6);}
 		.page2 p{font-size: 30px;color:#000;}
 		.page2 p.info{padding:14px;width:80%;margin:10px auto;font-size: 22px;border-radius: 30px;background: rgba(255,255,255,0.6);}
 		.page3 h2{margin:6rem auto 10px auto;font-size: 30px;padding:10px;width:50%;border:4px solid yellow;color:#fff;/*background:rgba(255,0,162,0.8);*/}
-		.page3 .skill{height: 70px;border:1px solid red;margin:2rem auto;overflow: hidden;}
-		.page3 .skill .img{position:absolute;width: 60px;height: 60px;border-radius:50%;background-size: 100%;border:5px solid #fff;overflow: hidden;float: left;z-index: 3;}
-		.page3 .skill .h5{background:#e44d26;left:8%;}
-		.page3 .skill .css3{background:#3b9adb;right:8%;}
-		.page3 .skill .js{background:#d6ba32;left:8%;}
-		.page3 .skill .level{position:absolute;left:8%;float: left;width:82%;height:70px;background: rgba(255,255,255,0.4);border-radius:35px;font-size: 24px;line-height:70px;}
+		.page3 .skill{height: 70px;margin:2rem auto;overflow: hidden;}
+		
+		
+		.page3 .skill .level{position:relative;width:77%;height:70px;background: rgba(255,255,255,0.4);border-radius:35px;font-size: 1.5rem;line-height:70px;margin:0 auto;}
+		.page3 .skill .level1{text-align: right;padding-right: 5%;}
+		.page3 .skill .level2{text-align: left;padding-left: 5%;}
+		.page3 .skill .level3{text-align: right;padding-right: 5%;}
+		.page3 .skill .img{position:absolute;top:0;width: 60px;height: 60px;border-radius:50%;background-size: 100%;border:5px solid #fff;overflow: hidden;z-index: 3;
+			animation:musicAnimate 2s linear infinite;
+			-webkit-animation:musicAnimate 2s linear infinite;
+			-moz-animation:musicAnimate 2s linear infinite;}
+		.page3 .skill .level .h5{background:#e44d26;left:0;}
+		.page3 .skill .level .css3{background:#3b9adb;right:0;}
+		.page3 .skill .level .js{background:#d6ba32;left:0;}
 	</style>
 </head>
 <body>
@@ -140,25 +157,30 @@
 		<div class="page page3 pageDown">
 			<h2>技能掌握</h2>
 			<div class="skill">
-				<div class="img h5">
-					<img src="images/h5.png">
+				
+				<div class="level level1">掌握程度:85%
+					<div class="img h5 rotate">
+						<img src="images/h5.png">
+					</div>
 				</div>
-				<div class="level">掌握程度:85%</div>
 			</div>
 			<div class="skill">
-				<div class="img css3">
-					<img src="images/css3.png">
+				
+				<div class="level level2">掌握程度:85%
+					<div class="img css3">
+						<img src="images/css3.png">
+					</div>
 				</div>
-				<div class="level">掌握程度:85%</div>
 			</div>
 			<div class="skill">
-				<div class="img js">
-					<img src="images/js.png">
+				
+				<div class="level level3">掌握程度:80%
+					<div class="img js">
+						<img src="images/js.png">
+					</div>
 				</div>
-				<div class="level">掌握程度:80%</div>
 			</div>
 		</div>
-		<div class="page page4 pageDown">4</div>
 		<div class="gotop"></div>
 		<div class="music"></div>
 		<!-- <audio src="source/music.mp3" autoplay="true"></audio> -->
@@ -176,8 +198,6 @@
 				}
 				$(".page").eq(index).addClass("pageUp").next().removeClass('pageDown');
 				index++;
-				console.log(index);
-				//$(".page").eq(index).removeClass('pageDown');
 			});
 			touch.on(".main","swipedown",function(){
 				if(index<=0){
