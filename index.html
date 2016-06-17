@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 	<title>个人简历</title>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<style type="text/css">
 		/*音乐按钮动画*/
 		@keyframes musicAnimate{
@@ -54,6 +55,14 @@
 			text-align: center;
 			/*z-index: 1;*/
 		}
+		.hide{display: none;}
+		.delay3{animation-delay: 0.3s;-webkit-animation-delay: 0.3s;}
+		.delay5{animation-delay: 0.5s;-webkit-animation-delay: 0.5s;}
+		.delay7{animation-delay: 0.7s;-webkit-animation-delay: 0.7s;}
+		.delay9{animation-delay: 0.9s;-webkit-animation-delay: 0.9s;}
+		.delay10{animation-delay: 1s;-webkit-animation-delay: 1s;}
+		.delay12{animation-delay: 1.2s;-webkit-animation-delay: 1.2s;}
+		.delay14{animation-delay: 1.4s;-webkit-animation-delay: 1.4s;}
 		.page1{background: #58e9cc;}
 		.page2{background: #92e958;}
 		.page3{background: #d75cfa;}
@@ -105,10 +114,10 @@
 			margin-left:-60px;
 			top:5rem;
 		}
-		.page1 h2{margin:15rem 0 14px 0;font-size: 2.2rem;color:#fff;transform:translateX(100px);}
-		.page1 h3{font-size: 28px;color:#fff;margin-bottom:10px;transform:translateX(-100px);}
+		.page1 h2{margin:15rem 0 14px 0;font-size: 2.2rem;color:#fff;}
+		.page1 h3{font-size: 28px;color:#fff;margin-bottom:10px;}
 		.page1 .shizi{width: 100px;height: 100px;}
-		.line{width: 70%;border-top: 2px solid rgba(255,255,255,0.6);margin:0 auto;}
+		.line{width: 70%;border-top: 2px solid rgba(255,255,255,0.6);margin:4px auto;}
 		.page1 p{font-size:1.5rem;color:#fff;margin-top: 1rem;}
 		
 		.page2{color:#fff;}
@@ -135,28 +144,28 @@
 <body>
 	<div class="main">
 		<div class="page page1">
-			<div class="head-img">
+			<div class="show head-img animated bounceInDown">
 				<img src="images/psb.jpg" alt="头像">
 			</div>
-			<h2>hi 我叫赵卓</h2>
-			<h3>我是一名</h3>
-			<img src="images/74.gif" class="shizi">
-			<div class="line"></div>
-			<p>前端攻城狮</p>
+			<h2 class="show animated fadeIn delay3">hi 我叫赵卓</h2>
+			<h3 class="show animated fadeIn delay9">我是一名</h3>
+			<img src="images/74.gif" class="show shizi animated bounceIn delay10">
+			<div class="line animated fadeInLeft delay12 show"></div>
+			<p class="show animated fadeInUp delay14">前端攻城狮</p>
 		</div>
 		<div class="page page2 pageDown">
-			<h2>个人信息</h2>
-			<div class="line"></div>
-			<p>About Me</p>
-			<p class="info">姓名:赵卓</p>
-			<p class="info">专业:计算机科学与技术</p>
-			<p class="info">学校:河北科技师范学院</p>
-			<p class="info">学历:本科</p>
+			<h2 class="show hide animated rubberBand">个人信息</h2>
+			<div class="show line hide animated fadeInRight delay3"></div>
+			<p class="show hide animated fadeInUp delay5">About Me</p>
+			<p class="show info hide animated bounceInLeft delay7">姓名:赵卓</p>
+			<p class="show info hide animated bounceInLeft delay9">专业:计算机科学与技术</p>
+			<p class="show info hide animated bounceInLeft delay10">学校:河北科技师范学院</p>
+			<p class="show info hide animated bounceInLeft delay12">学历:本科</p>
 			
 		</div>
 		<div class="page page3 pageDown">
-			<h2>技能掌握</h2>
-			<div class="skill">
+			<h2 class="show hide animated rubberBand">技能掌握</h2>
+			<div class="show skill hide animated fadeInUp delay3">
 				
 				<div class="level level1">掌握程度:85%
 					<div class="img h5 rotate">
@@ -164,7 +173,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="skill">
+			<div class="show skill hide animated fadeInUp delay5">
 				
 				<div class="level level2">掌握程度:85%
 					<div class="img css3">
@@ -172,7 +181,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="skill">
+			<div class="show skill hide animated fadeInUp delay7">
 				
 				<div class="level level3">掌握程度:80%
 					<div class="img js">
@@ -184,6 +193,7 @@
 		<div class="gotop"></div>
 		<div class="music"></div>
 		<!-- <audio src="source/music.mp3" autoplay="true"></audio> -->
+		
 	</div>
 	<script type="text/javascript" src="js/zepto.min.js"></script>
 	<script type="text/javascript" src="js/touch-0.2.14.min.js"></script>
@@ -197,13 +207,16 @@
 					return;
 				}
 				$(".page").eq(index).addClass("pageUp").next().removeClass('pageDown');
+				$(".page").eq(index + 1).find(".hide").removeClass('hide');
 				index++;
+				$(".page").eq(index - 1).find(".show").addClass("hide");
 			});
 			touch.on(".main","swipedown",function(){
 				if(index<=0){
 					return;
 				}
 				$(".page").eq(index).addClass('pageDown');
+				$(".page").eq(index - 1).find('.show').removeClass("hide");
 				index--;
 				$(".page").eq(index).removeClass('pageUp');
 			})
