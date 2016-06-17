@@ -207,17 +207,18 @@
 					return;
 				}
 				$(".page").eq(index).addClass("pageUp").next().removeClass('pageDown');
-				$(".page").eq(index + 1).find(".hide").removeClass('hide');
+				$(".page").eq(index + 1).find(".hide").removeClass('hide');//向上滑动在下一个page页里找所有带有hide类的元素  remove  hide类；
 				index++;
-				$(".page").eq(index - 1).find(".show").addClass("hide");
+				$(".page").eq(index - 1).find(".show").addClass("hide");//给上一页所有带show类名的元素 添加hide类 让其隐藏
 			});
 			touch.on(".main","swipedown",function(){
 				if(index<=0){
 					return;
 				}
 				$(".page").eq(index).addClass('pageDown');
-				$(".page").eq(index - 1).find('.show').removeClass("hide");
+				$(".page").eq(index - 1).find('.show').removeClass("hide");//下滑的时候将上一页所有带hide类的元素  remove hide类
 				index--;
+				$(".page").eq(index + 1).find('.show').addClass("hide");
 				$(".page").eq(index).removeClass('pageUp');
 			})
 
