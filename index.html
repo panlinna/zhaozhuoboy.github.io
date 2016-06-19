@@ -98,10 +98,13 @@
 			height: 40px;
 			background: url(images/normalmusic.svg);
 			background-size: 100%;
+			
+			z-index: 3;
+		}
+		.animate{
 			animation:musicAnimate 2s linear infinite;
 			-webkit-animation:musicAnimate 2s linear infinite;
 			-moz-animation:musicAnimate 2s linear infinite;
-			z-index: 3;
 		}
 		.page1 .head-img{
 			position:absolute;
@@ -191,8 +194,8 @@
 			</div>
 		</div>
 		<div class="gotop"></div>
-		<div class="music"></div>
-		<!-- <audio src="source/music.mp3" autoplay="true"></audio> -->
+		<div class="music animate"></div>
+		<audio src="source/music.mp3" autoplay="true" id="music"></audio>
 		
 	</div>
 	<script type="text/javascript" src="js/zepto.min.js"></script>
@@ -200,6 +203,8 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var index = 0;
+			var MUSIC =document.getElementById("music");
+			var flag= true;
 			var pageNum = $(".page").length;
 			console.log(pageNum)
 			touch.on('.main','swipeup',function(){
@@ -220,6 +225,19 @@
 				index--;
 				$(".page").eq(index + 1).find('.show').addClass("hide");
 				$(".page").eq(index).removeClass('pageUp');
+			})
+			touch.on(".music","tap",function(){
+				if(flag){
+					MUSIC.pause();
+					flag=!flag;
+					$(".music").removeClass("animate");
+				}else{
+					MUSIC.play();
+					flag=!flag;
+					$(".music").addClass("animate");
+					
+					
+				}
 			})
 
 
